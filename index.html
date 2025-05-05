@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C_monogram</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="vector-wrapper">
+    <svg id="box" fill="none" xmlns="http://www.w3.org/2000/svg" style="background-color:rgb(228, 228, 228)">
+        <g id="geral">
+            <g class="guias-argola">
+        <circle id="circ-outside"  stroke="black"></circle>
+        <circle id="circ-inside" stroke="black"></circle>
+        <g fill="black" id="vertexes"></g></g>
+        <g stroke="red" fill="pink" id="paths"></g>
+        </g>
+      </svg>
+    </div>
+      <div class="controls">
+        <label for="rotacao">Rotação:<br>
+            <input type="range" min="0" step="10" max="360" id="rotacao"><span>0</span>º</label>
+            <hr>
+          <label for="hoop-thickness">Espessura da argola:<br>
+            <input type="range" id="hoop-thickness" min="0" max="80"><span>0</span></label>
+            <hr>
+            <label for="num-sides">Nº de lados:<br>
+            <input type="range" min="2" max="40" id="num-sides"><span>0</span></label>
+            <hr>
+            <label for="num-petals">Nº de pétalas:<br>
+                <input type="range" id="num-petals"><span>0</span></label>
+                <hr>
+                <label for="mostrar-argola"><input type="checkbox" id="mostrar-argola" checked> Mostrar argola/vértices</label>
+            <!-- <label for="petal-rad">Tamanho da pétala:<br>
+            <input type="range" id="petal-rad"><span>0</span></label> -->
+                <br>
+                <button onclick="redefineVars()">Redefinir</button>
+          <a id="link-download" download="box.svg"><button>Salvar SVG</button></a>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>

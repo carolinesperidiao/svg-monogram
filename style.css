@@ -1,0 +1,11 @@
+#geral{
+    transform-origin: center;
+}
+
+body:has(#mostrar-argola:checked) .guias-argola{
+visibility: visible;
+}
+
+.guias-argola{
+    visibility: hidden;
+}
