@@ -26,9 +26,12 @@ function redefineVars(){
     inputHoop.value = 20 //hoopThickness
     inputNumSides.value = 7 //numSides
     inputNumPetals.value = 6 //numPetals
+    inputRotacao.parentNode.querySelector("span").innerHTML = inputRotacao.value
+    inputHoop.parentNode.querySelector("span").innerHTML = inputHoop.value
+    inputNumSides.parentNode.querySelector("span").innerHTML = inputNumSides.value
+    inputNumPetals.parentNode.querySelector("span").innerHTML = inputNumPetals.value
     buildShape()
 }
-
 
 //queries de input HTML
 let inputRotacao = document.getElementById('rotacao')
@@ -55,9 +58,7 @@ setupInput(inputNumPetals)
 
 function setupInput(inputTag){
 let label = inputTag.parentNode
-let display = label.querySelector("span")
 inputTag.setAttribute("oninput","updateValue()")
-console.log(display)
 }
 
 function rangeDependencies(){
@@ -145,8 +146,10 @@ paths.innerHTML = `<path id="flower" d="${pathDrawing}" />`
 if(numPetals >= numSides){
     document.getElementById("flower").setAttribute("mask","url(#in-circle)")
     let copiaCirculo = inCircle.outerHTML
-    console.log(copiaCirculo)
+    let dadosIncircle = inCircle.attributes
+    // console.log(copiaCirculo)
     document.getElementById("box").insertAdjacentHTML("afterbegin",`<mask id="in-circle"><rect width="100%" height="100%" fill="white" /><g fill="black">${copiaCirculo}</g></mask>`)
+    document.getElementById("paths").insertAdjacentHTML("beforeend",`<circle cx="${dadosIncircle.cx.value}" cy="${dadosIncircle.cy.value}" r="${dadosIncircle.r.value}" fill="none" id="donuthole">`)
 }
 //cortando as masks de sobra
 let sobraMasks = document.querySelectorAll("mask#in-circle")
